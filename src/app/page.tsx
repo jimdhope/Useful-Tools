@@ -11,7 +11,7 @@ import { DualFuelCalculator } from "@/components/calculators/dual-fuel-calculato
 import { CallFlow } from "@/components/calculators/call-flow";
 import { ResultsPanel } from "@/components/calculators/results-panel";
 import { ResultsProvider, useResults } from "@/lib/results-context";
-import { CalendarDays, BarChartBig, Flame, Zap, FileCheck2, Info, Infinity, Phone } from "lucide-react";
+import { CalendarDays, BarChartBig, Flame, Zap, FileCheck2, Info, Infinity, Phone, BookOpen } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "@/components/theme-toggle";
 
@@ -35,7 +35,7 @@ function HomePageContent() {
 
         <main className="flex-grow max-w-[90vw] mx-auto w-full">
           <Tabs defaultValue="instalment-plan" onValueChange={() => setResults(null)} className="w-full">
-            <TabsList className="grid w-full grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 mb-6 h-auto p-1">
+            <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 mb-3 h-auto p-1">
               <TabsTrigger value="instalment-plan" className={tabTriggerClassName}>
                 <CalendarDays className="h-5 w-5 sm:h-4 sm:w-4" /> Instalment Plan
               </TabsTrigger>
@@ -52,15 +52,23 @@ function HomePageContent() {
                 <BarChartBig className="h-5 w-5 sm:h-4 sm:w-4" /> Tariff Comparison
               </TabsTrigger>
               <TabsTrigger value="agreed-reads" className={tabTriggerClassName}>
-                <FileCheck2 className="h-5 w-5 sm:h-4 sm_w-4" /> Agreed Reads
+                <FileCheck2 className="h-5 w-5 sm:h-4 sm:w-4" /> Agreed Reads
               </TabsTrigger>
+            </TabsList>
+            <nav aria-label="More useful tools" className="grid w-full grid-cols-2 sm:grid-cols-4 gap-1 mb-6 rounded-md bg-muted p-1 text-muted-foreground">
               <Link href="/scoring" className={cn(tabTriggerClassName, "bg-muted text-muted-foreground hover:bg-accent hover:text-accent-foreground no-underline")}>
                 <Phone className="h-5 w-5 sm:h-4 sm:w-4" /> Call Flow
+              </Link>
+              <Link href="/meter-reading-guide" className={cn(tabTriggerClassName, "bg-muted text-muted-foreground hover:bg-accent hover:text-accent-foreground no-underline")}>
+                <BookOpen className="h-5 w-5 sm:h-4 sm:w-4" /> Meter Reading Guide
+              </Link>
+              <Link href="/power-cuts" className={cn(tabTriggerClassName, "bg-muted text-muted-foreground hover:bg-accent hover:text-accent-foreground no-underline")}>
+                <Zap className="h-5 w-5 sm:h-4 sm:w-4" /> Power Cuts
               </Link>
               <Link href="/about" className={cn(tabTriggerClassName, "bg-muted text-muted-foreground hover:bg-accent hover:text-accent-foreground no-underline")}>
                 <Info className="h-5 w-5 sm:h-4 sm:w-4" /> About
               </Link>
-            </TabsList>
+            </nav>
 
             <div className="grid grid-cols-1 xl:grid-cols-4 gap-6">
               <div className="xl:col-span-3">
