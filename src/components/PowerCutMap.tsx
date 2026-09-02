@@ -16,8 +16,7 @@ import { Legend } from "@/components/Legend";
 import { MapController } from "@/components/MapController";
 import { VERSION } from "@/lib/config";
 import { isLive, statusKind, dnoColor, statusLabel, formatDate } from "@/lib/ui";
-import { lookupPostcode, type OutwardCodeInfo } from "@/lib/postcodes";
-import { outwardCode } from "@/lib/dno";
+import { lookupPostcode } from "@/lib/postcodes";
 import { ArrowLeft, Zap } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -132,8 +131,7 @@ export default function PowerCutMap() {
 
   // Geocode from postcode using local lookup table
   const geocodePostcode = useCallback((postcode: string): { lat: number; lon: number } | null => {
-    const oc = outwardCode(postcode);
-    const info = lookupPostcode(oc);
+    const info = lookupPostcode(postcode.split(";")[0].trim());
     if (info) return { lat: info.lat, lon: info.lon };
     return null;
   }, []);
