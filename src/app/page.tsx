@@ -11,7 +11,7 @@ import { DualFuelCalculator } from "@/components/calculators/dual-fuel-calculato
 import { CallFlow } from "@/components/calculators/call-flow";
 import { ResultsPanel } from "@/components/calculators/results-panel";
 import { ResultsProvider, useResults } from "@/lib/results-context";
-import { CalendarDays, BarChartBig, Flame, Zap, FileCheck2, Info, Infinity, Phone, BookOpen } from "lucide-react";
+import { CalendarDays, BarChartBig, Flame, Zap, FileCheck2, Info, Infinity, Phone, BookOpen, Tv } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "@/components/theme-toggle";
 
@@ -55,12 +55,15 @@ function HomePageContent() {
                 <FileCheck2 className="h-5 w-5 sm:h-4 sm:w-4" /> Agreed Reads
               </TabsTrigger>
             </TabsList>
-            <nav aria-label="More useful tools" className="grid w-full grid-cols-2 sm:grid-cols-4 gap-1 mb-6 rounded-md bg-muted p-1 text-muted-foreground">
+            <nav aria-label="More useful tools" className="grid w-full grid-cols-2 sm:grid-cols-3 gap-1 mb-6 rounded-md bg-muted p-1 text-muted-foreground">
               <Link href="/scoring" className={cn(tabTriggerClassName, "bg-muted text-muted-foreground hover:bg-accent hover:text-accent-foreground no-underline")}>
                 <Phone className="h-5 w-5 sm:h-4 sm:w-4" /> Call Flow
               </Link>
               <Link href="/meter-reading-guide" className={cn(tabTriggerClassName, "bg-muted text-muted-foreground hover:bg-accent hover:text-accent-foreground no-underline")}>
                 <BookOpen className="h-5 w-5 sm:h-4 sm:w-4" /> Meter Reading Guide
+              </Link>
+              <Link href="/ihd-guide" className={cn(tabTriggerClassName, "bg-muted text-muted-foreground hover:bg-accent hover:text-accent-foreground no-underline")}>
+                <Tv className="h-5 w-5 sm:h-4 sm:w-4" /> IHD Guide
               </Link>
               <Link href="/power-cuts" className={cn(tabTriggerClassName, "bg-muted text-muted-foreground hover:bg-accent hover:text-accent-foreground no-underline")}>
                 <Zap className="h-5 w-5 sm:h-4 sm:w-4" /> Power Cuts
