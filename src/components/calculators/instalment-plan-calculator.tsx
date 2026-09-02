@@ -59,14 +59,13 @@ export function InstalmentPlanCalculator() {
       const suggestedGroup: ResultsSection[] = [];
       [12, 18, 24].forEach(months => {
         const monthlyInstalment = balance / months;
-        const total = !isNaN(usage) ? monthlyInstalment + usage : monthlyInstalment;
         suggestedGroup.push({
           label: `${months} Months`,
-          value: `£${total.toFixed(2)}/mo`,
+          value: `£${monthlyInstalment.toFixed(2)}/month`,
         });
       });
       groups.push(suggestedGroup);
-      groupTitles.push("Recommended Repayment Plans");
+      groupTitles.push("Suggested Payment Plans");
     }
 
     if (watchedStartDate && !isNaN(balance) && !isNaN(usage) && !isNaN(instalmentAmount) && instalmentAmount > 0 && balance > 0) {
@@ -95,7 +94,7 @@ export function InstalmentPlanCalculator() {
 
         groups.push([
           { label: "Usage Amount", value: `£${usage.toFixed(2)}` },
-          { label: "Instalment Amount", value: `£${instalmentAmount.toFixed(2)}` },
+          { label: "Instalment", value: `£${instalmentAmount.toFixed(2)}` },
           { label: "Total Monthly Payment", value: `£${totalMonthlyPayment.toFixed(2)}`, highlight: true },
           { label: "Number of Instalments", value: `${numberOfInstalments}` },
           { label: "Start Date", value: format(startDate, "dd-MM-yyyy") },

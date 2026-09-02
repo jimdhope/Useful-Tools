@@ -7,3 +7,4 @@ services:
       - "9002:3000"
     environment:
       - NODE_ENV=production
+      - DATA_GATEWAY_URL=http://10.0.0.245:4000

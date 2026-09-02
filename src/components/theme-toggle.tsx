@@ -1,7 +1,6 @@
 
 "use client"
 
-import * as React from "react"
 import { Moon, Sun } from "lucide-react"
 import { useTheme } from "@/components/theme-provider"
 import { Button } from "@/components/ui/button"
@@ -13,17 +12,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 
 export function ThemeToggle() {
-  const { setTheme, theme } = useTheme()
-  const [mounted, setMounted] = React.useState(false)
-
-  React.useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  if (!mounted) {
-    // Avoid rendering mismatch during SSR/hydration for the icon
-    return <Button variant="outline" size="icon" className="h-9 w-9 opacity-0 pointer-events-none" aria-hidden="true" tabIndex={-1}></Button>;
-  }
+  const { setTheme } = useTheme()
 
   return (
     <DropdownMenu>
