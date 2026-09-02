@@ -312,7 +312,9 @@ export default function PowerCutMap() {
           <MapContainer
             ref={mapRef}
             center={[54.0, -3.0]}
-            zoom={5.5}
+            zoom={6.5}
+            minZoom={5}
+            maxZoom={15}
             zoomControl={false}
             className="h-full w-full"
           >
