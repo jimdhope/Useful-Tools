@@ -16,6 +16,9 @@ import { Legend } from "@/components/Legend";
 import { MapController } from "@/components/MapController";
 import { VERSION } from "@/lib/config";
 import { isLive, statusKind, dnoColor, statusColor, statusLabel, formatDate } from "@/lib/ui";
+import { ArrowLeft, Zap } from "lucide-react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 const DNO_URLS: Record<string, string> = {
   "UK Power Networks": "https://www.ukpowernetworks.co.uk/power-cut/list",
@@ -292,6 +295,15 @@ export default function PowerCutMap() {
             active={statusFilter === "restored"}
             onClick={() => setStatusFilter(statusFilter === "restored" ? "all" : "restored")}
           />
+        </div>
+
+        <div className="ml-auto">
+          <Link href="/" passHref>
+            <Button variant="outline" size="sm">
+              <ArrowLeft className="mr-2 h-4 w-4" />
+              Back to All Tools
+            </Button>
+          </Link>
         </div>
       </header>
 
