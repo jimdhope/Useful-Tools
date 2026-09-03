@@ -134,8 +134,7 @@ export function formatDate(dateStr: string | null | undefined): string {
   if (!dateStr || dateStr === "1900-01-01 00:00:00" || dateStr === "Invalid Date")
     return "Unknown";
   try {
-    // Parse as local time (DNOs publish in UK local time, not UTC)
-    const d = new Date(dateStr.replace("Z", ""));
+    const d = new Date(dateStr);
     if (isNaN(d.getTime())) return dateStr;
     return d.toLocaleString("en-GB", {
       day: "numeric",
